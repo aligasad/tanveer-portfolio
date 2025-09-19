@@ -41,7 +41,7 @@ export default function Footer() {
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/"
+                href="https://github.com/aligasad"
                 className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-all shadow-md"
               >
                 <Github className="w-5 h-5" />
@@ -55,11 +55,11 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {["About Me", "Skills", "Experience", "Projects", "Contact"].map(
+              {["About", "Skills", "Experience", "Projects", "Contact"].map(
                 (item, i) => (
                   <li key={i}>
                     <a
-                      href={`#${item.toLowerCase().replace(" ", "")}`}
+                      href={`${item.toLowerCase().replace(" ", "")}`}
                       className="relative text-muted-foreground hover:text-accent transition-colors before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-accent before:transition-all hover:before:w-full"
                     >
                       {item}
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 Tanveer Alam. All rights reserved.
+            © 2024 <a href="https://asadalam.info">asadalam.info</a> All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm italic">
             Designed with precision and innovation 🚀
