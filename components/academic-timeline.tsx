@@ -38,23 +38,32 @@ export function AcademicTimeline() {
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-rose-500"></div>
+          {/* Timeline line - always below cards */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-rose-500 z-0"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-12 relative z-10">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`flex items-center ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                className={`flex flex-col items-center lg:items-stretch lg:space-y-0 ${
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
               >
                 <div
-                  className={`w-1/2 ${
-                    index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
+                  className={`w-full lg:w-1/2 ${
+                    index % 2 === 0
+                      ? "lg:pr-8 lg:text-right"
+                      : "lg:pl-8 lg:text-left"
                   }`}
                 >
-                  <Card className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
+                  {/* Year on mobile (just above card) */}
+                  <div className="lg:hidden mb-2 text-center">
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                      {edu.year}
+                    </span>
+                  </div>
+
+                  <Card className="relative border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg z-10">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-3 mb-3">
                         {index % 2 === 0 ? (
@@ -107,14 +116,14 @@ export function AcademicTimeline() {
                   </Card>
                 </div>
 
-                {/* Timeline dot */}
-                <div className="relative z-10 w-4 h-4 bg-rose-500 rounded-full border-4 border-background shadow-lg">
+                {/* Timeline dot (desktop only) */}
+                <div className="relative z-10 w-4 h-4 bg-rose-500 rounded-full border-4 border-background shadow-lg hidden lg:block">
                   <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
                     {edu.year}
                   </div>
                 </div>
 
-                <div className="w-1/2"></div>
+                <div className="hidden lg:block w-1/2"></div>
               </div>
             ))}
           </div>

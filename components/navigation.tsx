@@ -85,7 +85,11 @@ export default function Navigation() {
             className="md:hidden text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -113,10 +117,17 @@ export default function Navigation() {
                     {link.label}
                   </Link>
                 ))}
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download CV
-                </Button>
+                <a
+                  href="/tanRes.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download CV
+                  </Button>
+                </a>
               </div>
             </motion.div>
           )}

@@ -24,12 +24,6 @@ export default function ContactSection() {
     message: "",
   });
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault()
-  //   console.log("Form submitted:", formData)
-  //   setFormData({ name: "", email: "", message: "" })
-  // }
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -38,8 +32,6 @@ export default function ContactSection() {
       [e.target.name]: e.target.value,
     });
   };
-
-  ("use client");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
